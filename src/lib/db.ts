@@ -15,6 +15,15 @@ type Post = {
   createdAt: Date;
 };
 
+type PostWithUser = {
+  id: string;
+  authorId: string;
+  content: string;
+  createdAt: string;
+  userName: string;
+  userProfile: string;
+};
+
 export let users: User[] = [
   {
     id: uuidv4(),
@@ -48,13 +57,13 @@ let posts: Post[] = [
 ];
 
 
-export function getAllPosts(): (Post & { userName: string; userProfile: string })[] {
+export function getAllPosts(): Array<Post & { userName: string; userProfile: string }> {
   return posts.map((post) => {
     const user = users.find((u) => u.id === post.authorId);
     return {
       ...post,
       userName: user?.name || 'Unknown',
-      userProfile: user?.profile || '',
+      userProfile: user?.profile || '/avatars/placeholder.png',
     };
   });
 }
@@ -78,8 +87,9 @@ export function signup(name: string, email: string, password: string): User {
     name,
     email,
     password,
-    profile: `/images/user-placeholder.png`,
+    profile: `/images/user-placeholder.png`
   };
+  
   users.push(user);
   return user;
 }

@@ -1,5 +1,3 @@
-// src/lib/db.test.ts
-
 import { signup, login, users } from './db';
 
 describe('Mock DB', () => {
@@ -37,4 +35,5 @@ describe('Mock DB', () => {
     const b = login('dup@example.com', 'pw1');
     expect(a.id).toBe(b?.id);
   });
+
 });

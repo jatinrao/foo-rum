@@ -17,7 +17,7 @@ export default function DbTest() {
 
     const all = getAllPosts();
     console.log('All Posts:', all);
-
+    
     const foundUser = getUserById(newUser.id);
     console.log('Found User:', foundUser);
   }, []);
