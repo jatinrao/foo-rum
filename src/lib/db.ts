@@ -8,7 +8,7 @@ type User = {
   profile: string;
 };
 
-type Post = {
+export type Post = {
   id: string;
   authorId: string;
   content: string;
@@ -19,12 +19,12 @@ export type PostWithUser = {
   id: string;
   authorId: string;
   content: string;
-  createdAt: string;
+  createdAt: Date;
   userName: string;
   userProfile: string;
 };
 
-export let users: User[] = [
+export const users: User[] = [
   {
     id: uuidv4(),
     name: 'Theresa Webb',
@@ -41,7 +41,7 @@ export let users: User[] = [
   },
 ];
 
-let posts: Post[] = [
+const posts: Post[] = [
   {
     id: uuidv4(),
     authorId: users[0].id,
@@ -57,7 +57,7 @@ let posts: Post[] = [
 ];
 
 
-export function getAllPosts(): Array<Post & { userName: string; userProfile: string }> {
+export function getAllPosts(): Array<PostWithUser> {
   return posts.map((post) => {
     const user = users.find((u) => u.id === post.authorId);
     return {

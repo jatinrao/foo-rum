@@ -1,20 +1,20 @@
 import { PostWithUser } from '@/lib/db';
-import { formatDate, formatTimeAgo, getRandomEmoji } from '@/lib/utils';
-import React, { useMemo } from 'react';
+import { formatTimeAgo} from '@/lib/utils';
 import Button from './Button';
 import { CommentIcon, LikeIcon, ShareIcon } from '@/lib/icons';
 import Emoji from './Emoji';
+import Image from 'next/image';
 
 
 
 function Post({ data }:{data:PostWithUser}) {
-  const { id,authorId,content,createdAt,userName,userProfile } = data;
+  const {content,createdAt,userName,userProfile } = data;
   
   return (
     <div className="bg-card-grey rounded-xl shadow-md overflow-hidden p-2.5 w-full max-w-[600px] animate-slidedown">
       <div className="border-none bg-white rounded-xl p-2 ">
         <div className="flex items-center mb-4">
-          <img src={userProfile} alt={userName} className="w-10 h-10 rounded-full object-cover mr-3" />
+          <Image src={userProfile} alt={userName} className="w-10 h-10 rounded-full object-cover mr-3" />
           <div>
             <div className="font-medium">{userName}</div>
             <div className="text-sm text-gray-500">{formatTimeAgo(createdAt.toString())}</div>

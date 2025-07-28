@@ -1,5 +1,3 @@
-import { Dispatch } from 'react';
-
 type AuthCheckOptions = {
   isAuthenticated: boolean;
   openAuthModal: () => void;

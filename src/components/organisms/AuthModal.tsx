@@ -20,7 +20,6 @@ export default function AuthModal({ onClose }: Props) {
 
   const handleSubmit = () => {
     try {
-      console.log('handle submit ',isSignup,email,password)
       if (isSignup) {
           if(name.length !==0 && email.length !== 0 && password.length !== 0){
             signup( name,email, password );
@@ -32,7 +31,7 @@ export default function AuthModal({ onClose }: Props) {
       } else {
         console.log('here',email,password,email.length > 0 && password.length>0);
         if(email.length > 0 && password.length>0){
-        let user = login(email, password);
+        const user = login(email, password);
         if(user){
           setAuth(user);
           onClose();
@@ -48,8 +47,8 @@ export default function AuthModal({ onClose }: Props) {
       }
       
       
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err:unknown) {
+      setError('Something went wrong :'+ JSON.stringify(err));
     }
   };
 

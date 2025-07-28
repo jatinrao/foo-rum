@@ -1,34 +1,28 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PostList from '@/components/atoms/PostList';
 import AuthModal from '@/components/organisms/AuthModal';
-import { withAuthCheck } from '@/lib/withAuthCheck';
 import useAppState from '@/hooks/useAppState';
-import Button from '@/components/atoms/Button';
-import { getAllPosts } from '@/lib/db';
+import { getAllPosts, PostWithUser } from '@/lib/db';
 import PostEditor from '@/components/organisms/PostEditor';
 import Header from '@/components/molecules/Header';
 import useToast from '@/hooks/useToast';
-// import Image from "next/image";
 
 export default function Home() {
   const initPosts = getAllPosts();
-  const { openAuth, setOpenAuth, isAuthenticated,user } = useAppState();
-  const [allPosts, setAllPosts] = useState<any[]>(initPosts);
-  const {Toast,showToast} = useToast();
-  useEffect(()=>{
-    showToast('INIT');
-  },[])
+  const { openAuth, setOpenAuth,user } = useAppState();
+  const [allPosts, setAllPosts] = useState<PostWithUser[]>(initPosts);
+  const {Toast} = useToast();
 
   const handleAddPost = (newPost:string) => {
   if (newPost.trim()) {
     const post = {
       id: crypto.randomUUID(),
-      authorId: user?.id || null,
-      userName:user.name || 'NA',
-      userProfile:user.profile || '/images/user-placeholder.png',
+      authorId: user?.id || 'NA',
+      userName:user?.name || 'NA',
+      userProfile:user?.profile || '/images/user-placeholder.png',
       content: newPost.trim(),
-      createdAt: new Date().toISOString(),
+      createdAt: new Date(),
     };
     setAllPosts((prev) => [post, ...prev]);
    

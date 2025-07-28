@@ -1,6 +1,5 @@
 'use client';
 
-import { formatDate } from "@/lib/utils";
 import Post from "./Post";
 import { PostWithUser } from "@/lib/db";
 

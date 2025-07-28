@@ -1,9 +1,9 @@
-import { useAppStateContext } from '../context/AppState';
+import { useAppStateContext, User } from '../context/AppState';
 
 export default function useAppState() {
   const { state, dispatch } = useAppStateContext();
 
-  const login = (user: { name: string; email: string }) =>
+  const login = (user: User) =>
     dispatch({ type: 'LOGIN', payload: user });
 
   const logout = () => dispatch({ type: 'LOGOUT' });

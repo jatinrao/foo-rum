@@ -1,14 +1,39 @@
 'use client';
 
-import { createContext, useReducer, useContext, ReactNode } from 'react';
+import {
+  createContext,
+  useReducer,
+  useContext,
+  ReactNode,
+  Dispatch,
+} from 'react';
 
-const initialState = {
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  profile: string;
+}
+
+interface AppState {
+  isAuthenticated: boolean;
+  openAuth: boolean;
+  user: User | null;
+}
+
+type Action =
+  | { type: 'LOGIN'; payload: User }
+  | { type: 'LOGOUT' }
+  | { type: 'OPEN_AUTH_MODAL' }
+  | { type: 'CLOSE_AUTH_MODAL' };
+
+const initialState: AppState = {
   isAuthenticated: false,
   openAuth: false,
   user: null,
 };
 
-function reducer(state: typeof initialState, action: any) {
+function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'LOGIN':
       return { ...state, isAuthenticated: true, user: action.payload };
@@ -23,7 +48,12 @@ function reducer(state: typeof initialState, action: any) {
   }
 }
 
-const AppStateContext = createContext<any>(null);
+interface AppStateContextType {
+  state: AppState;
+  dispatch: Dispatch<Action>;
+}
+
+const AppStateContext = createContext<AppStateContextType | undefined>(undefined);
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -34,6 +64,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useAppStateContext() {
-  return useContext(AppStateContext);
+export function useAppStateContext(): AppStateContextType {
+  const context = useContext(AppStateContext);
+  if (!context) {
+    throw new Error('useAppStateContext must be used within AppStateProvider');
+  }
+  return context;
 }

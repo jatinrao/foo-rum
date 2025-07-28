@@ -4,7 +4,7 @@ import Image from 'next/image';
 import useAppState from '@/hooks/useAppState';
 
 function Header() {
-  const { openAuth, setOpenAuth, isAuthenticated,user } = useAppState();
+  const {setOpenAuth, isAuthenticated,user } = useAppState();
   return (
     <header className="flex justify-between items-center py-2 sticky top-0">
       <div className="flex items-center space-x-2">
@@ -12,7 +12,7 @@ function Header() {
         <h1 className="text-xl font-bold">foo-rum</h1>
       </div>
       {isAuthenticated && user ? <div className="flex items-center mb-4">
-                                    <img src={user.profile} alt={user.name} className="w-6 h-6 rounded-full object-cover mr-3" />
+                                    <Image src={user.profile} alt={user.name} className="w-6 h-6 rounded-full object-cover mr-3" width={24} height={24} />
                                      <div>
                                          <div className="font-medium text-md">{user.name}</div>
                                     </div>
