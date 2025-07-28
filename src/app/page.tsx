@@ -24,7 +24,9 @@ export default function Home() {
   if (newPost.trim()) {
     const post = {
       id: crypto.randomUUID(),
-      authorId: user?.id || 'guest',
+      authorId: user?.id || null,
+      userName:user.name || 'NA',
+      userProfile:user.profile || '/images/user-placeholder.png',
       content: newPost.trim(),
       createdAt: new Date().toISOString(),
     };

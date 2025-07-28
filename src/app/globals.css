@@ -11,6 +11,38 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card-grey: var(--card-grey);
+
+  
+  --animate-slidedown: slidedown 0.7s ease-in-out;
+  @keyframes slidedown {
+    0%{
+      visibility: visible;
+      transform: translate3d(0, -100%, 0);
+      padding:0;
+      opacity: 0;
+    }
+    70%{
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+      padding:10px;
+    }
+  }
+
+   --animate-bordershrink: bordershrink 1s ease-in-out;
+  @keyframes bordershrink {
+    0%{
+      visibility: visible;
+      padding:0;
+    }
+    100% {
+      
+
+    }
+  }
+  
 }
 
 @media (prefers-color-scheme: dark) {

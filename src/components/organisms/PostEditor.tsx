@@ -29,7 +29,7 @@ const protectedAddPost = withAuthCheck(() => {
       <div className="border-none bg-white rounded-xl p-2 ">
         <div className="bg-white flex flex-row justify-between pb-2">
         <div className="flex items-center p-2 space-x-2 bg-card-grey h-10 rounded-xl">
-          <select name="para-input" className="px-3 py-1.5 bg-white border rounded-md text-sm">
+          <select name="para-input" className="px-3 py-1.5 bg-white border rounded-md text-xs font-medium">
             <option className='w-full'>Paragraph</option>
             <option className='w-full'>Heading 1</option>
             <option className='w-full'>Heading 2</option>
