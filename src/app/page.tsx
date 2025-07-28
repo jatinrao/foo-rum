@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import PostList from '@/components/atoms/PostList';
-import AuthModal from '@/components/AuthModal';
+import AuthModal from '@/components/organisms/AuthModal';
 import { withAuthCheck } from '@/lib/withAuthCheck';
 import useAppState from '@/hooks/useAppState';
 import Button from '@/components/atoms/Button';

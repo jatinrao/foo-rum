@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Button from '@/components/atoms/Button';
 import { withAuthCheck } from '@/lib/withAuthCheck';
 import useAppState from '@/hooks/useAppState';
-import AuthModal from '../AuthModal';
+import AuthModal from './AuthModal';
 
 type Props =  {
     handleAddPost:(newPost:string)=> void;
