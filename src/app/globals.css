@@ -4,11 +4,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card-grey:rgba(0, 0, 0, 0.03);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card-grey: var(--card-grey);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +26,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Inter",Arial, Helvetica, sans-serif;
+}
+
+@theme {
+
 }

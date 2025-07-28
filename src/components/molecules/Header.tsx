@@ -12,9 +12,9 @@ function Header() {
         <h1 className="text-xl font-bold">foo-rum</h1>
       </div>
       {isAuthenticated && user ?<div className="flex items-center mb-4">
-                <img src={user.userProfile} alt={user.name} className="w-10 h-10 rounded-full object-cover mr-3" />
+                <img src={user.profile} alt={user.name} className="w-10 h-10 rounded-full object-cover mr-3" />
                 <div>
-                  <div className="font-medium">{user.username}</div>
+                  <div className="font-medium">{user.name}</div>
                 </div>
               </div>: 
       <Button className="flex items-center space-around text-black cursor-pointer"  onClick={() => setOpenAuth(true)}>

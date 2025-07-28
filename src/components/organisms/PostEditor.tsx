@@ -5,6 +5,7 @@ import Button from '@/components/atoms/Button';
 import { withAuthCheck } from '@/lib/withAuthCheck';
 import useAppState from '@/hooks/useAppState';
 import AuthModal from './AuthModal';
+import { AddIcon, BoldIcon, BulletIcon, CameraIcon, CodeIcon, DeleteIcon, EmojiIcon, ItalicIcon, MicIcon, NumberListIcon, QuoteIcon, SendIcon, UnderlineIcon } from '@/lib/icons';
 
 type Props =  {
     handleAddPost:(newPost:string)=> void;
@@ -24,65 +25,68 @@ const protectedAddPost = withAuthCheck(() => {
 
 
   return (
-     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="border-b">
-        <div className="flex items-center p-2 space-x-2">
-          <select className="px-3 py-1.5 bg-white border rounded-md text-sm">
-            <option>Paragraph</option>
-            <option>Heading 1</option>
-            <option>Heading 2</option>
+     <div className="bg-card-grey rounded-xl shadow-md overflow-hidden p-2.5 w-full max-w-[600px]">
+      <div className="border-none bg-white rounded-xl p-2 ">
+        <div className="bg-white flex flex-row justify-between pb-2">
+        <div className="flex items-center p-2 space-x-2 bg-card-grey h-10 rounded-xl">
+          <select name="para-input" className="px-3 py-1.5 bg-white border rounded-md text-sm">
+            <option className='w-full'>Paragraph</option>
+            <option className='w-full'>Heading 1</option>
+            <option className='w-full'>Heading 2</option>
           </select>
           
-          <Button featureFlag={false} className="p-1.5 font-bold hover:bg-gray-100 rounded">B</Button>
-          <Button featureFlag={false} className="p-1.5 italic hover:bg-gray-100 rounded">I</Button>
-          <Button featureFlag={false} className="p-1.5 underline hover:bg-gray-100 rounded">U</Button>
+          <Button featureFlag={false} className="p-1 font-bold hover:bg-gray-100 rounded m-0 hidden sm:block ml-4" icon={<BoldIcon/>}></Button>
+          <Button featureFlag={false} className="p-1 italic hover:bg-gray-100 rounded m-0 hidden sm:block" icon={<ItalicIcon/>}></Button>
+          <Button featureFlag={false} className="p-1 underline hover:bg-gray-100 rounded hidden sm:block" icon={<UnderlineIcon/>}></Button>
           
-          <div className="h-6 w-px bg-gray-300"></div>
+          <div className="h-6 w-px bg-gray-300 hidden md:block"></div>
           
-          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded">
-            <span className="text-xl">•</span>
+          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded hidden md:block" icon={<BulletIcon/>}>
           </Button>
-          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded">
-            <span className="text-xl">=</span>
+          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded hidden md:block" icon={<NumberListIcon/>}>
           </Button>
           
-          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded text-sm">99</Button>
-          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded text-sm">&lt;/&gt;</Button>
-          
-          <Button featureFlag={false} className="ml-auto p-1.5 bg-red-100 text-red-500 rounded-md">
-            <span>🗑️</span>
-          </Button>
+          <div className="h-6 w-px bg-[#0002] hidden lg:block"></div>
+
+          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded text-sm hidden lg:block" icon={<QuoteIcon/>}></Button>
+          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded text-sm hidden lg:block " icon={<CodeIcon/>}></Button>
         </div>
+      <div className="flex items-center justify-center h-10 w-10 bg-red-100 rounded-xl">
+        <Button onClick={()=> setNewPost("")} className="" icon={<DeleteIcon/>}>
+          </Button>
+      </div>
       </div>
       
-      <div className="editor-content">
-        <div className="flex flex-col gap-3 mb-4">
+      
+        <div className="relative mb-4 w-full">
         <textarea
           value={newPost}
           onChange={(e) => setNewPost(e.target.value)}
           rows={3}
-          className="w-full border border-gray-300 rounded p-3 resize-none"
-          placeholder="Share your thoughts..."
+          className="w-full rounded p-3 pl-10 resize-none text-[#0006] outline-none"
+          placeholder="How are you feeling today?"
         />
+        <div className='absolute left-3 top-[16px]'>
+            <EmojiIcon/>
         </div>
-      </div>
+        </div>
+     
       
-      <div className="flex items-center justify-between p-3 border-t">
-        <div className="flex space-x-3">
-          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600">+</button>
-          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600">🎤</button>
-          <button className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600">📷</button>
+      <div className="flex items-center justify-between p-3 border-t border-[#D9D9D9]">
+        <div className="flex space-x-1">
+          <Button className="w-8 h-8 flex items-center justify-center bg-[#0001] rounded-xl" icon={<AddIcon/>}></Button>
+          <Button className="w-8 h-8 flex items-center justify-center" icon={<MicIcon/>}></Button>
+          <Button className="w-8 h-8 flex items-center justify-center" icon={<CameraIcon/>}></Button>
         </div>
         <Button 
         onClick={()=>{
-            console.log('on click ',isAuthenticated,newPost)
            protectedAddPost();  
         }   
         }
 
-         className="w-10 h-10 flex items-center justify-center bg-blue-600 hover:bg-blue-700 rounded-full text-white">
-          <span className="transform rotate-90">➔</span>
+         className="w-10 h-10 flex items-center justify-center rounded-full" icon={<SendIcon/>}>
         </Button>
+      </div>
       </div>
       {openAuth && <AuthModal onClose={() => setOpenAuth(false)} />}
     </div>
