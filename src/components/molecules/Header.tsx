@@ -6,7 +6,7 @@ import useAppState from '@/hooks/useAppState';
 function Header() {
   const {setOpenAuth, isAuthenticated,user } = useAppState();
   return (
-    <header className="flex justify-between items-center py-2 sticky top-0">
+    <header className="flex justify-between items-center py-2 sticky top-0 bg-white">
       <div className="flex items-center space-x-2">
         <Image src="/images/mouse.svg" alt="logo" width={34} height={34}/>
         <h1 className="text-xl font-bold">foo-rum</h1>

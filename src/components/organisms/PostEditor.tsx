@@ -25,19 +25,19 @@ const protectedAddPost = withAuthCheck(() => {
 
 
   return (
-     <div className="bg-card-grey rounded-xl shadow-md overflow-hidden p-2.5 w-full max-w-[600px]">
-      <div className="border-none bg-white rounded-xl p-2 ">
+     <div className="bg-card-grey rounded-xl shadow-md overflow-hidden p-0 border-card-grey border-8 w-full max-w-[600px] animate-bordershrink">
+      <div className="border-none bg-white rounded-xl p-1.5 shadow-cards">
         <div className="bg-white flex flex-row justify-between pb-2">
         <div className="flex items-center p-2 space-x-2 bg-card-grey h-10 rounded-xl">
-          <select name="para-input" className="px-3 py-1.5 bg-white border rounded-md text-xs font-medium">
+          <select name="para-input" className="px-3 py-1.5 bg-white border rounded-md text-xs font-medium shadow-buttons">
             <option className='w-full'>Paragraph</option>
             <option className='w-full'>Heading 1</option>
             <option className='w-full'>Heading 2</option>
           </select>
           
-          <Button featureFlag={false} className="p-1 font-bold hover:bg-gray-100 rounded m-0 hidden sm:block ml-4" icon={<BoldIcon/>}></Button>
-          <Button featureFlag={false} className="p-1 italic hover:bg-gray-100 rounded m-0 hidden sm:block" icon={<ItalicIcon/>}></Button>
-          <Button featureFlag={false} className="p-1 underline hover:bg-gray-100 rounded hidden sm:block" icon={<UnderlineIcon/>}></Button>
+          <Button featureFlag={false} className="p-1 font-bold bg-white py-1 m-0 hidden sm:block ml-4 shadow-buttons" icon={<BoldIcon/>}></Button>
+          <Button featureFlag={false} className="p-1 italic  rounded-xl m-0 hidden sm:block" icon={<ItalicIcon/>}></Button>
+          <Button featureFlag={false} className="p-1 underline rounded-xl hidden sm:block" icon={<UnderlineIcon/>}></Button>
           
           <div className="h-6 w-px bg-gray-300 hidden md:block"></div>
           
@@ -48,8 +48,8 @@ const protectedAddPost = withAuthCheck(() => {
           
           <div className="h-6 w-px bg-[#0002] hidden lg:block"></div>
 
-          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded text-sm hidden lg:block" icon={<QuoteIcon/>}></Button>
-          <Button featureFlag={false} className="p-1.5 hover:bg-gray-100 rounded text-sm hidden lg:block " icon={<CodeIcon/>}></Button>
+          <Button featureFlag={false} className="p-1.5 text-sm hidden lg:block" icon={<QuoteIcon/>}></Button>
+          <Button featureFlag={false} className="p-1.5  text-sm hidden lg:block " icon={<CodeIcon/>}></Button>
         </div>
       <div className="flex items-center justify-center h-10 w-10 bg-red-100 rounded-xl">
         <Button onClick={()=> setNewPost("")} className="" icon={<DeleteIcon/>}>
@@ -67,16 +67,16 @@ const protectedAddPost = withAuthCheck(() => {
           placeholder="How are you feeling today?"
         />
         <div className='absolute left-3 top-[16px]'>
-            <EmojiIcon/>
+            <Button featureFlag={false} icon={<EmojiIcon/>} />
         </div>
         </div>
      
       
-      <div className="flex items-center justify-between p-3 border-t border-[#D9D9D9]">
+      <div className="flex items-center justify-between pt-1 border-t border-[#D9D9D9]">
         <div className="flex space-x-1">
-          <Button className="w-8 h-8 flex items-center justify-center bg-[#0001] rounded-xl" icon={<AddIcon/>}></Button>
-          <Button className="w-8 h-8 flex items-center justify-center" icon={<MicIcon/>}></Button>
-          <Button className="w-8 h-8 flex items-center justify-center" icon={<CameraIcon/>}></Button>
+          <Button featureFlag={false} className="w-8 h-8 flex items-center justify-center bg-[#0001] rounded-xl" icon={<AddIcon/>}></Button>
+          <Button featureFlag={false} className="w-8 h-8 flex items-center justify-center" icon={<MicIcon/>}></Button>
+          <Button featureFlag={false} className="w-8 h-8 flex items-center justify-center" icon={<CameraIcon/>}></Button>
         </div>
         <Button 
         onClick={()=>{

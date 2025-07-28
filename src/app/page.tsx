@@ -31,9 +31,9 @@ export default function Home() {
 
 
   return (
-   <div className="max-w-screen-xl mx-auto p-4 font-sans relative">
+   <div className="max-w-screen-xl mx-auto p-4 relative font-[inter]">
     <Header/>
-      <main className="flex flex-col gap-[32px] row-start-2 items-center">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center ">
         
       <PostEditor handleAddPost={handleAddPost}/> 
 

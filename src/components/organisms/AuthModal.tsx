@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function AuthModal({ onClose }: Props) {
-  const { login: setAuth } = useAppState();
+  const { login: setAuth,setOpenAuth } = useAppState();
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,10 +19,12 @@ export default function AuthModal({ onClose }: Props) {
   const [error, setError] = useState('');
 
   const handleSubmit = () => {
+    console.log('submit',isSignup,name,email,password);
     try {
       if (isSignup) {
-          if(name.length !==0 && email.length !== 0 && password.length !== 0){
-            signup( name,email, password );
+          if(name.length != 0 && email.length != 0 && password.length != 0){
+            const user = signup( name,email, password );
+            setAuth(user);
             onClose();
           }
           else {setError("Please check input values.")
@@ -53,8 +55,8 @@ export default function AuthModal({ onClose }: Props) {
   };
 
   return (
-    <div className="fixed inset-0 bg-[#8c8c8c4a] flex justify-center items-center z-50">
-      <div className="bg-[#EBEBEB] opacity-100 p-3 rounded-xl shadow-lg">
+    <div className="fixed inset-0 bg-[#8c8c8c4a] flex justify-center items-center z-50" onClick={()=>setOpenAuth(false)}>
+      <div className="bg-[#EBEBEB] opacity-100 p-3 rounded-xl shadow-lg" onClick={(e)=> e.stopPropagation()}>
         <div className='bg-white p-6 rounded-xl min-w-[300px] max-w-[400px]'>
         <div className='bg-[#EBEBEB] rounded-[50%] h-12 w-12 flex my-4 mx-auto'>
           <Image src="/images/log-in.svg" className='cursor-pointer m-auto' alt="login-icon ml-0" width={20} height={20}/>

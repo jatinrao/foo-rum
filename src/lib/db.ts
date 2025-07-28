@@ -24,7 +24,7 @@ export type PostWithUser = {
   userProfile: string;
 };
 
-export const users: User[] = [
+export let users: User[] = [
   {
     id: uuidv4(),
     name: 'Theresa Webb',
@@ -41,7 +41,7 @@ export const users: User[] = [
   },
 ];
 
-const posts: Post[] = [
+let posts: Post[] = [
   {
     id: uuidv4(),
     authorId: users[0].id,

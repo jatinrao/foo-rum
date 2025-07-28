@@ -17,8 +17,8 @@ export default function useToast(timeout = 2500) {
 
   const Toast = () =>
     visible ? (
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded shadow z-50">
-        {message}
+      <div className="fixed top-18 -right-10 transform -translate-x-1/2 bg-white text-black p-8 rounded-xl border-card-grey border-8 shadow z-50">
+        ⚠️ {message}
       </div>
     ) : null;
 
