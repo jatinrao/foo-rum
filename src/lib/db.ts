@@ -15,7 +15,7 @@ type Post = {
   createdAt: Date;
 };
 
-type PostWithUser = {
+export type PostWithUser = {
   id: string;
   authorId: string;
   content: string;
@@ -46,13 +46,13 @@ let posts: Post[] = [
     id: uuidv4(),
     authorId: users[0].id,
     content: 'Hello from Theresa!',
-    createdAt: new Date(),
+    createdAt: new Date("Sun Jul 27 2025 20:23:05 GMT+0530 (India Standard Time)"),
   },
   {
     id: uuidv4(),
     authorId: users[1].id,
     content: 'John Doe was here.',
-    createdAt: new Date(),
+    createdAt: new Date("Sun Jul 27 2025 20:23:05 GMT+0530 (India Standard Time)"),
   },
 ];
 

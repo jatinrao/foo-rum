@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import useAppState from '../hooks/useAppState';
-import Button from './Button';
+import Button from './atoms/Button';
 import { signup, login } from '../lib/db';
 
 type Props = {
