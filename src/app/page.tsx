@@ -35,7 +35,7 @@ export default function Home() {
 
 
   return (
-   <div className="max-w-screen-xl mx-auto p-4 font-sans">
+   <div className="max-w-screen-xl mx-auto p-4 font-sans relative">
     <Header/>
       <main className="flex flex-col gap-[32px] row-start-2 items-center">
         

@@ -45,13 +45,13 @@ let posts: Post[] = [
   {
     id: uuidv4(),
     authorId: users[0].id,
-    content: 'Hello from Theresa!',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     createdAt: new Date("Sun Jul 27 2025 20:23:05 GMT+0530 (India Standard Time)"),
   },
   {
     id: uuidv4(),
     authorId: users[1].id,
-    content: 'John Doe was here.',
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     createdAt: new Date("Sun Jul 27 2025 20:23:05 GMT+0530 (India Standard Time)"),
   },
 ];
