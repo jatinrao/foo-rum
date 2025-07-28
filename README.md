@@ -1,6 +1,13 @@
 # foo-rum
 Assignment for atlys.
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+Problem Statement/Requirement : https://goatlys.notion.site/Atlys-Frontend-Hiring-Task-20ed57ef738880f7a56ec4bdfab0c246
+
+Github Repo : https://github.com/jatinrao/foo-rum#
+
+Preview Link (Vercel) : https://foo-rum-pi.vercel.app/
+
+NOTE: Using in memory data structure for mocking DB,Hence it will reset DB to its inital state after reload.
 
 ## Getting Started
 
@@ -15,6 +22,9 @@ pnpm dev
 # or
 bun dev
 ```
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
